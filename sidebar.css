@@ -2,9 +2,9 @@ body {
     padding: 0px;
 	margin: 0px;
 	overflow: hidden;
-	border-left: 2px outset white;
+	border-left: 2px outset ThreeDHighlight;
 	padding-left: 1px;
-	background: rgb(192,192,192);
+	background: ThreeDFace;
 }
 
 .logo_container {
@@ -14,48 +14,46 @@ body {
 }
 
 .sidebar {
-    background: rgb(58,110,165);
+    background: Background;
 	width: 100%;
 	height: 100%;
 }
 
 .sidebar_title {
-    background: darkblue;
-	color: white;
+    background: ActiveCaption;
+	color: CaptionText;
     text-align: center;
 	line-height: 20px;
-	font-size: 8px;
 	margin-bottom: 0px;
-	border-bottom: 1px solid white;
+	border-bottom: 1px solid ThreeDHighlight;
 	padding: 5px;
 	font-family: MS Sans Serif;
-	font-weight: bold;
+	font-size: 8px;
 }
 
 .block_frame {
-    border-right: 1px solid black;
-	border-bottom: 1px solid black;
-	border-left: 1px solid rgb(192,192,192);
-	border-top: 1px solid rgb(192,192,192);
+    border-right: 1px solid ThreeDDarkShadow;
+	border-bottom: 1px solid ThreeDDarkShadow;
+	border-left: 1px solid ThreeDLightShadow;
+	border-top: 1px solid ThreeDLightShadow;
 	margin: 5px;
 }
 
 .block_inner {
-    background: rgb(192,192,192);
-	border-top: 1px solid white;
-	border-left: 1px solid white;
-	border-right: 1px solid rgb(128,128,128);
-	border-bottom: 1px solid rgb(128,128,128);
+    background: ThreeDFace;
+	border-top: 1px solid ThreeDHighlight;
+	border-left: 1px solid ThreeDHighlight;
+	border-right: 1px solid ThreeDShadow;
+	border-bottom: 1px solid ThreeDShadow;
 	width: 100%;
 	padding: 2px;
 }
 
 .block_title {
-    background: darkblue;
-	color: #fff;
-	font-size: 8px;
+    background: ActiveCaption;
+	color: CaptionText;
 	font-family: MS Sans Serif;
-	font-weight: bold;
+	font-size: 8px;
 	padding: 3px;
 	width: 100%;
 	margin-bottom: 0px;
@@ -147,6 +145,11 @@ p {
 	margin-top: -14px;
 	margin-bottom: -1px;
 	margin-right: -1px;
+}
+
+hr {
+    border-top: 1px solid ThreeDShadow;
+    border-bottom: 1px solid ThreeDHighlight;
 }
 
 .hidden {
