@@ -1,179 +1,183 @@
 <head>
     <title>Test Active Desktop</title>
-	<style>
-	body {
-	    padding: 0px;
-		margin: 0px;
-		overflow: hidden;
-		border-left: 2px outset white;
-		padding-left: 1px;
-		background: rgb(192,192,192);
-	}
 	
-	.logo_container {
-	    background: white;
-		width: 100%;
-		vertical-align: top;
-	}
+	<script src="json2.js" type="text/javascript" language="javascript"></script>
+	<script src="sidebar.js" type="text/javascript" language="javascript"></script>
+	<link rel="stylesheet" href="sidebar.css">
 	
-	.sidebar {
-	    background: rgb(58,110,165);
-		width: 100%;
-		height: 100%;
-	}
+	<script type="text/javascript">
+	// CONFIG
 	
-	.sidebar_title {
-	    background: darkblue;
-		color: white;
-	    text-align: center;
-		line-height: 20px;
-		font-size: 8px;
-		margin-bottom: 0px;
-		border-bottom: 1px solid white;
-		padding: 5px;
-		font-family: MS Sans Serif;
-		font-weight: bold;
-	}
-	
-	.block_frame {
-	    border-right: 1px solid black;
-		border-bottom: 1px solid black;
-		border-left: 1px solid rgb(192,192,192);
-		border-top: 1px solid rgb(192,192,192);
-		margin: 5px;
-	}
-	
-	.block_inner {
-	    background: rgb(192,192,192);
-		border-top: 1px solid white;
-		border-left: 1px solid white;
-		border-right: 1px solid rgb(128,128,128);
-		border-bottom: 1px solid rgb(128,128,128);
-		width: 100%;
-		padding: 2px;
-	}
-	
-	.block_title {
-	    background: darkblue;
-		color: #fff;
-		font-size: 8px;
-		font-family: MS Sans Serif;
-		font-weight: bold;
-		padding: 3px;
-		width: 100%;
-		margin-bottom: 0px;
-	}
-	
-	.block_content {
-	    padding: 2px;
-		width: 100%;
-		font-family: MS Sans Serif;
-		font-size: 8px;
-	}
-	
-	p {
-		margin: 0px;
-	}
-	
-	.weather_location {
-	    font-size: 17px;
-		font-weight: bold;
-	}
-	
-	.weather_time {}
-	
-	.weather_table {
-	    font-size: 12px;
-		width: 100%;
-	}
-	</style>
+	var update_interval = 30;
+	</script>
 </head>
 <body>
 	<!--<div class="logo_container"><img class="logo" src="winnt.bmp"></div>-->
 	<h1 class="sidebar_title">Sidebar</h1>
 	<div class="sidebar">
-	    <div class="block_frame">
+	    <!--<div class="block_frame">
 	        <div class="block_inner">
 		        <h1 class="block_title">Date/Time</h1>
 				<div class="block_content">
-					<p><strong>Date: </strong>Thursday, January 42, 7022</p>
-					<p><strong>Time: </strong>3:43 PM</p>
+					<p><strong>Date: </strong><span id="date">Thursday, January 42, 7022</span></p>
+					<p><strong>Time: </strong><span id="time">3:43 PM</span></p>
 				</div>
+		    </div>
+		</div>-->
+		
+		<div class="block_frame">
+	        <div class="block_inner">
+		        <h1 class="block_title">
+				Weather
+				<button onclick="javascript:ToggleWeatherButton(this)">-</button>
+				</h1>
+				<span id="weather_block_content">
+					<div class="block_content">
+						<p class="weather_location" id="weather_location">Seattle, WA</p>
+						<p><span id="date">Thursday, January 42, 7022</span></p>
+						<p><span id="time">3:43 PM</span></p>
+						<!--<p class="weather_time" id="weather_time"> Weather as of 3:43 PM:</p>-->
+						<br>
+						
+						<p class="weather_now_temp" id="weather_now_temp">62 F</p>
+						<p class="weather_now_state" id="weather_now_state">Cloudy</p>
+						<br>
+						
+						<div id="weather_now">
+							<table class="weather_table">
+								<tr>
+									<td>Temperature</td>
+									<td>72 F</td>
+								</tr>
+								<tr>
+									<td>Humidity</td>
+									<td>69%</td>
+								</tr>
+								<tr>
+									<td>Dew Point</td>
+									<td>3 mL</td>
+								</tr>
+								<tr>
+									<td>Rainfall</td>
+									<td>6 inches</td>
+								</tr>
+							</table>
+						</div>
+						
+						<br><br>
+						<p class="section_title"><strong>Today</strong> <button onclick="javascript:ToggleWeatherTodayButton(this)">-</button></p>
+						<hr>
+						<div id="weather_today">
+						
+						</div>
+						<!--<table class="weather_table">
+							<tr>
+								<td>Temperature (High/Low)</td>
+								<td>90 F / 69 F</td>
+							</tr>
+							<tr>
+								<td>Humidity</td>
+								<td>69%</td>
+							</tr>
+							<tr>
+								<td>Precipitation</td>
+								<td>3 mL</td>
+							</tr>
+							<tr>
+								<td>UV Index</td>
+								<td>6</td>
+							</tr>
+							<tr>
+								<td>Wind</td>
+								<td>6 mph NNW</td>
+							</tr>
+						</table>-->
+						<br><br>
+						<!--<p><strong>Outlook (High/Low)</strong></p>-->
+						<p class="section_title"><strong>Outlook</strong> <button onclick="javascript:ToggleWeatherOutlookButton(this)">-</button></p>
+						<hr>
+						<div id="weather_outlook">
+							<table class="weather_table">
+								<tr>
+									<td>Friday, 01/43</td>
+									<td>90 F / 60 F</td>
+								</tr>
+								<tr>
+									<td>Saturday, 01/44</td>
+									<td>90 F / 60 F</td>
+								</tr>
+								<tr>
+									<td>Sunday, 01/45</td>
+									<td>90 F / 60 F</td>
+								</tr>
+								<tr>
+									<td>Monday, 01/46</td>
+									<td>90 F / 60 F</td>
+								</tr>
+								<tr>
+									<td>Tuesday, 01/47</td>
+									<td>90 F / 60 F</td>
+								</tr>
+								<tr>
+									<td>Wednesday, 01/48</td>
+									<td>90 F / 60 F</td>
+								</tr>
+								<tr>
+									<td>Thursday, 01/49</td>
+									<td>90 F / 60 F</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</span>
 		    </div>
 		</div>
 		
 		<div class="block_frame">
 	        <div class="block_inner">
-		        <h1 class="block_title">Weather</h1>
-				<div class="block_content">
-				    <p class="weather_location">Seattle, WA</p>
-					<p class="weather_time">3:43 PM</p>
-					<br><br>
-					<p><strong>Currently</strong></p>
-					<hr>
+		        <h1 class="block_title">
+					Stocks
+					<button onclick="javascript:ToggleStocksButton(this)">-</button>
+				</h1>
+				<span id="stocks_block_content">
+					<div class="block_content">
+						<table class="stocks_table" id="stocks_table">
+							<tr>
+								<td class="stock_name">MSFT</td>
+								<td class="stock_price up">+0.6% - $512.00 USD</td>
+							</tr>
+							<tr>
+								<td class="stock_name">YES</td>
+								<td class="stock_price down">-3.0% - $1.00 USD</td>
+							</tr>
+						</table>
+					</div>
+				</span>
+		    </div>
+		</div>
+		
+		<div class="block_frame debug_block">
+	        <div class="block_inner">
+		        <h1 class="block_title">Debug</h1>
+				<div class="block_content" id="debug">
 					
-					<table class="weather_table">
-					    <tr>
-						    <td>Temperature</td>
-							<td>69 F</td>
-						</tr>
-						<tr>
-						    <td>Humidity</td>
-							<td>69 F</td>
-						</tr>
-						<tr>
-						    <td>High</td>
-							<td>90 F</td>
-						</tr>
-						<tr>
-						    <td>Low</td>
-							<td>69 F</td>
-						</tr>
-					</table>
-					<br><br>
-					<p><strong>Outlook (High/Low)</strong></p>
-					<hr>
-					<table class="weather_table">
-					    <tr>
-						    <td>Friday, 01/43</td>
-							<td>90 F / 60 F</td>
-						</tr>
-						<tr>
-						    <td>Saturday, 01/44</td>
-							<td>90 F / 60 F</td>
-						</tr>
-						<tr>
-						    <td>Sunday, 01/45</td>
-							<td>90 F / 60 F</td>
-						</tr>
-						<tr>
-						    <td>Monday, 01/46</td>
-							<td>90 F / 60 F</td>
-						</tr>
-						<tr>
-						    <td>Tuesday, 01/47</td>
-							<td>90 F / 60 F</td>
-						</tr>
-						<tr>
-						    <td>Wednesday, 01/48</td>
-							<td>90 F / 60 F</td>
-						</tr>
-						<tr>
-						    <td>Thursday, 01/49</td>
-							<td>90 F / 60 F</td>
-						</tr>
-					</table>
 				</div>
 		    </div>
 		</div>
 		
-		<div class="block_frame">
+		<!--<div class="block_frame">
 	        <div class="block_inner">
 		        <h1 class="block_title">block 3</h1>
 				<div class="block_content">
-					<p>fmnaegfuyrabgteaujtgbeaigutabtayeu</p>
+					<p id="test">fmnaegfuyrabgteaujtgbeaigutabtayeu</p>
 				</div>
 		    </div>
-		</div>
+		</div>-->
 	</div>
+	
+	<script type="text/javascript">
+	//var num = 0;
+	UpdateSidebar();
+	setInterval(UpdateSidebar, update_interval * 1000);
+	</script>
 </body>
