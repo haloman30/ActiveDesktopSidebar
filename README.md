@@ -13,7 +13,7 @@ Currently, the available widgets include:
 
 This page has been tested to run under Windows 2000 and Internet Explorer 6.0. Additionally included is a PHP
 script that is used to proxy the APIs used for geolocation and weather information. This script can be hosted on
-any webserver that uses PHP 5.1.4 or newer, however a version of this script can also be found at `#` (TBA).
+any webserver that uses PHP 5.1.4 or newer, however a version of this script can also be found at `https://haloman30.com/projects/adsidebar/api/weather.php?zip=<ZIP>`, replacing `<ZIP>` with the ZIP code of the desired region.
 
 ## Features
 
