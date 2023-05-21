@@ -23,10 +23,10 @@ body {
     background: ActiveCaption;
 	color: CaptionText;
     text-align: center;
-	line-height: 20px;
+	line-height: 17px;
 	margin-bottom: 0px;
 	border-bottom: 1px solid ThreeDHighlight;
-	padding: 5px;
+	padding: 0px;
 	font-family: MS Sans Serif;
 	font-size: 8px;
 }
